@@ -1,0 +1,26 @@
+{
+    "name": "maaxim-one/laadmin",
+    "description": "Admin Panel для Laravel",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "version": "0.0.1",
+    "authors": [
+        {
+            "name": "maaxim",
+            "email": "email@example.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MaaximOne\\LaAdmin\\": "app/"
+        }
+    },
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MaaximOne\\LaAdmin\\Providers\\LaAdminServiceProvider"
+            ]
+        }
+    }
+}
