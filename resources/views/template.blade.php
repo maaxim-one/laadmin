@@ -8,7 +8,9 @@
 </head>
 <body>
 <div id="app">
-    <app></app>
+    @section('content')
+        //
+    @show
 </div>
 @if(env('APP_ENV') == 'local')
     @routes

@@ -1,0 +1,21 @@
+<?php
+
+namespace MaaximOne\LaAdmin\Models;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Model;
+
+class Role extends Model
+{
+    public $timestamps = false;
+    protected $primaryKey = 'role_id';
+    protected $table = 'roles';
+
+    protected function rules(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => json_decode($value),
+            set: fn($value) => json_encode($value)
+        );
+    }
+}
