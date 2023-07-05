@@ -44,4 +44,11 @@ class LaAdminLogin extends AdminController
             ]
         ], 422);
     }
+
+    public function getUser()
+    {
+        return response()->json(
+            Auth::user()
+        );
+    }
 }

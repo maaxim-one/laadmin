@@ -13,4 +13,20 @@
 3. **vue-router**: ^4.2.2
 4. **vuetify**: ^3.3.2
 5. **axios**: ^1.1.2
-6. **vue**: ^3.3.4
+6. **vuex**: ^4.1.0
+7. **vue**: ^3.3.4
+
+## Обработка ошибок
+
+Отлов ошибок которые возникают во время работы сайта и сохранение в БД.
+Нужно подключить событие для отловки ошибок.
+**\App\Exceptions\Handler.php**
+
+```php
+public function register(): void
+{
+    $this->reportable(function (Throwable $e) {
+        event(new \MaaximOne\LaAdmin\Events\ErrorReportEvent($e));
+    });
+}
+```
