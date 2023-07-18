@@ -15,7 +15,10 @@
             "MaaximOne\\LaAdmin\\": "app/"
         }
     },
-    "require": {},
+    "require": {
+        "tightenco/ziggy": "^1.6",
+        "inertiajs/inertia-laravel": "^0.6"
+    },
     "extra": {
         "laravel": {
             "providers": [

@@ -10,7 +10,7 @@ return new class extends Migration {
         Schema::create('error_reports', function (Blueprint $table) {
             $table->id('report_id');
             $table->string('report_file');
-            $table->integer('report_code');
+            $table->string('report_code');
             $table->integer('report_line');
             $table->longText('report_message');
             $table->json('report_events');
