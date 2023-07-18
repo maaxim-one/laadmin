@@ -1,0 +1,20 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Seeder;
+use App\Models\User;
+
+class LaAdminUserSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $new = new User();
+        $new->name = 'User';
+        $new->login = 'admin';
+        $new->role_id = 2;
+        $new->password = Hash::make('123');
+        $new->save();
+    }
+}

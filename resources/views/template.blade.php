@@ -4,7 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LaAdminPanel</title>
-    @vite(['resources/js/app.js'])
+    {{
+        Vite::useBuildDirectory('laadmin')
+            ->withEntryPoints(['resources/js/app.js'])
+    }}
 </head>
 <body>
 <div id="app">
