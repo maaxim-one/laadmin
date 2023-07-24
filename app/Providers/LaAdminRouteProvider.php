@@ -17,7 +17,9 @@ class LaAdminRouteProvider extends ServiceProvider
             'middleware' => ['web', 'IsAdmin'],
             'prefix' => 'admin',
         ], function () {
-            $this->loadRoutesFrom(base_path('routes/admin.php'));
+            if (file_exists(base_path('routes/admin.php'))) {
+                $this->loadRoutesFrom(base_path('routes/admin.php'));
+            }
         });
 
 //        Route::middleware('web')

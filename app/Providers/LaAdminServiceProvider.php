@@ -23,5 +23,6 @@ class LaAdminServiceProvider extends ServiceProvider
         $this->app->registerDeferredProvider(LaAdminRouteProvider::class);
         $this->app->registerDeferredProvider(LaAdminFacadesProvider::class);
         $this->app->registerDeferredProvider(LaAdminCommandsProvider::class);
+        $this->app->registerDeferredProvider(LaAdminBroadcastProvider::class);
     }
 }

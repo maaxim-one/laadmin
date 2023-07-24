@@ -7,7 +7,7 @@
     "authors": [
         {
             "name": "maaxim",
-            "email": "email@example.com"
+            "email": "laadmin@noreply.github.com"
         }
     ],
     "autoload": {
@@ -16,14 +16,18 @@
         }
     },
     "require": {
-        "tightenco/ziggy": "^1.6",
-        "inertiajs/inertia-laravel": "^0.6"
+        "beyondcode/laravel-websockets": "^1.14",
+        "inertiajs/inertia-laravel": "^0.6",
+        "tightenco/ziggy": "^1.6"
     },
     "extra": {
         "laravel": {
             "providers": [
                 "MaaximOne\\LaAdmin\\Providers\\LaAdminServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "LaAdmin": "MaaximOne\\LaAdmin\\Facades\\LaAdmin"
+            }
         }
     }
 }
