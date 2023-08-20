@@ -22,15 +22,15 @@ namespace: `MaaximOne\LaAdmin\Classes\Page`
 `public function make(string $page): Page` - функция объявления новой
 страницы.
 
-> Параметры:
->> string $page - ключ страницы используется только для
-> > взаимодействия внутри приложения. Не должно быть пробелов/знаков и кириллицы.
+> Параметры:<br>
+> `string $page` - ключ страницы используется только для
+> взаимодействия внутри приложения. Не должно быть пробелов/знаков и кириллицы.
 
 `public function getPages(): object` - возвращает все страницы
 
 `public function getPage(string $page): Page` - возвращает определённую страницу
-> Параметры:
->> string $page - ключ страницы
+> Параметры:<br>
+> `string $page` - ключ страницы
 
 ## Page
 
@@ -42,30 +42,30 @@ namespace: `MaaximOne\LaAdmin\Classes\Page`
 его нужно прописать как нужно для отображения. Также label можно установить вручную.
 
 `public function setIcon(?string $icon): Page` - устанавливает иконку
-> Параметры:
->> `?string $icon` - класс иконки от [***MaterialDesignIcons***](https://pictogrammers.com/library/mdi/)
+> Параметры:<br>
+> `?string $icon` - класс иконки от [***MaterialDesignIcons***](https://pictogrammers.com/library/mdi/)
 
 `public function setTitle(?string $title): Page` - устанавливает заголовок
-> Параметры:
->> `?string $title` - строка
+> Параметры:<br>
+> `?string $title` - строка
 
 `public function setAddMode(bool $mode = true): Page` - устанавливает режим
 взаимодействия, можно добавлять новые записи или нет
 
-> Параметры:
->> `bool $mode = true`
+> Параметры:<br>
+> `bool $mode = true`
 
 `public function setEditMode(bool $mode = true): Page` - устанавливает режим
 взаимодействия, можно редактировать записи или нет
 
-> Параметры:
->> `bool $mode = true`
+> Параметры:<br>
+> `bool $mode = true`
 
 `public function setDeleteMode(bool $mode = true): Page` - устанавливает режим
 взаимодействия, можно удалять записи или нет
 
-> Параметры:
->> `bool $mode = true`
+> Параметры:<br>
+> `bool $mode = true`
 
 `public function getFields(): array` - возвращает массив полей
 > Возвращает:
@@ -87,20 +87,20 @@ namespace: `MaaximOne\LaAdmin\Classes\Page`
 с которыми не будет какого либо взаимодействия, они не будут добавлены в
 список полей. Этот метод должен быть определён до того как будет инициализирована модель.
 
-> Параметры:
->> `array $fields` - передается массив с наименованиями полей в БД
+> Параметры:<br>
+> `array $fields` - передается массив с наименованиями полей в БД
 
 `public function setModel(string $model): Page` - установка модели для страницы.
 При вызове этой функции будет сразу выполнено считывание таблицы БД.
 
-> Параметры:
->> `string $model` - пространственный путь модели. Пример: `App\Models\User::class`
+> Параметры:<br>
+> `string $model` - пространственный путь модели. Пример: `App\Models\User::class`
 
 `public function field(string $name, callable $closure): Page` - определение правил для поля
 
-> Параметры:
->> `string $name` - название поля в БД<br>
-> > `callable $closure` - функция для определения параметров поля
+> Параметры:<br>
+> `string $name` - название поля в БД<br>
+> `callable $closure` - функция для определения параметров поля
 
 > Пример:
 >```php
@@ -114,9 +114,9 @@ namespace: `MaaximOne\LaAdmin\Classes\Page`
 `public function fileField(string $name, callable $closure): Page` - объявление поля
 файловым и определение правил для поля.
 
-> Параметры:
->> `string $name` - название поля в БД<br>
-> > `callable $closure` - функция для определения параметров поля
+> Параметры:<br>
+> `string $name` - название поля в БД<br>
+> `callable $closure` - функция для определения параметров поля
 
 > Пример:
 >```php
@@ -138,65 +138,65 @@ namespace: `MaaximOne\LaAdmin\Classes\Page`
 `public function setName(string $name): Field` - установить название поля в БД.
 Устанавливается автоматически. Лучше не трогать))
 
-> Параметры:
->> `string $name`
+> Параметры:<br>
+> `string $name`
 
 `public function setLabel(string $label): Field` - установить Label значение для поля.
 Название которые выводиться для пользователя. Значение по умолчанию: `__($name)`
 
-> Параметры:
->> `string $label`
+> Параметры:<br>
+> `string $label`
 
 `public function setType(string $type): Field` - установить тип поля.
 По умолчанию равен типу поля в БД.
 
-> Параметры:
->> `string $type`
+> Параметры:<br>
+> `string $type`
 
 `public function setReadonly(bool $readonly): Field` - правило, поле только для чтения
 
-> Параметры:
->> `bool $readonly = false`
+> Параметры:<br>
+> `bool $readonly = false`
 
 `public function setDisabled(bool $disabled): Field` - правило, поле неактивно
 
-> Параметры:
->> `bool $disabled = false`
+> Параметры:<br>
+> `bool $disabled = false`
 
 `public function setShow(bool $show): Field` - правило, показывать поле или нет
 
-> Параметры:
->> `bool $show = true`
+> Параметры:<br>
+> `bool $show = true`
 
 `public function setValidationRules(null|string|array $validationRules): Field` -
 устанавливаются общие правила для валидации поля.
 
-> Параметры:
->> `null|string|array $validationRules` - список правил в соответствии с оф.
-> > документацией [Laravel Validation](https://laravel.com/docs/10.x/validation)
+> Параметры:<br>
+> `null|string|array $validationRules` - список правил в соответствии с оф.
+> документацией [Laravel Validation](https://laravel.com/docs/10.x/validation)
 
 `public function setValidationRulesAdd(array|string|null $validationRulesAdd): Field` -
 устанавливаются правила при добавлении записи валидации поля.
 
-> Параметры:
->> `null|string|array $validationRulesAdd` - список правил в соответствии с оф.
-> > документацией [Laravel Validation](https://laravel.com/docs/10.x/validation)
+> Параметры:<br>
+> `null|string|array $validationRulesAdd` - список правил в соответствии с оф.
+> документацией [Laravel Validation](https://laravel.com/docs/10.x/validation)
 
 `public function setValidationRulesEdit(array|string|null $validationRulesEdit): Field` -
 устанавливаются правила при редактировании записи валидации поля.
 
-> Параметры:
->> `null|string|array $validationRulesEdit` - список правил в соответствии с оф.
-> > документацией [Laravel Validation](https://laravel.com/docs/10.x/validation)
+> Параметры:<br>
+> `null|string|array $validationRulesEdit` - список правил в соответствии с оф.
+> документацией [Laravel Validation](https://laravel.com/docs/10.x/validation)
 
 `public function setField(string $name, string $label, string $type = 'string', null|string|array $validationRules = null): Field` -
 установить поле
 
-> Параметры:
->> `string $name` - название поля в БД<br>
-> > `string $label` - Label поля<br>
-> > `string $type` - тип поля<br>
-> > `null|string|array $validationRules` - правила для валидации
+> Параметры:<br>
+> `string $name` - название поля в БД<br>
+> `string $label` - Label поля<br>
+> `string $type` - тип поля<br>
+> `null|string|array $validationRules` - правила для валидации
 
 ## FileField
 
