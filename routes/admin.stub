@@ -1,5 +1,5 @@
 <?php
 
-Route::get('/', function () {
+Route::get('{any?}', function () {
     return view('laadmin::index');
-})->name('home');
+})->where('any', '^(?!login|register).*$')->name('home');

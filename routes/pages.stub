@@ -1,0 +1,22 @@
+<?php
+
+use MaaximOne\LaAdmin\Classes\Page\FileField;
+use MaaximOne\LaAdmin\Classes\Page\Field;
+
+// LaAdminPage::make('products')
+//     ->setModel(\App\Models\Product::class)
+//     ->setTitle('Товары')
+//     ->setIcon('mdi-ab-testing')
+//     ->field('product_id', function (Field $field) {
+//         return $field->setDisabled(true)
+//             ->setShow(false);
+//     })
+//     ->field('product_name', function (Field $field) {
+//         return $field->setValidationRules('required');
+//     })
+//     ->fileField('photos', function (FileField $field) {
+//         return $field
+//             ->setPath(storage_path('media/products'))
+//             ->setPublicPath('storage/media/products')
+//             ->setValidationRulesAdd('required');
+//     });

@@ -6,8 +6,7 @@
     "version": "0.0.1",
     "authors": [
         {
-            "name": "maaxim",
-            "email": "laadmin@noreply.github.com"
+            "name": "maaxim"
         }
     ],
     "autoload": {
@@ -17,7 +16,6 @@
     },
     "require": {
         "beyondcode/laravel-websockets": "^1.14",
-        "inertiajs/inertia-laravel": "^0.6",
         "tightenco/ziggy": "^1.6"
     },
     "extra": {
@@ -26,7 +24,8 @@
                 "MaaximOne\\LaAdmin\\Providers\\LaAdminServiceProvider"
             ],
             "aliases": {
-                "LaAdmin": "MaaximOne\\LaAdmin\\Facades\\LaAdmin"
+                "LaAdmin": "MaaximOne\\LaAdmin\\Facades\\LaAdmin",
+                "LaAdminPage": "MaaximOne\\LaAdmin\\Facades\\LaAdminPage"
             }
         }
     }

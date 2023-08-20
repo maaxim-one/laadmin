@@ -5,8 +5,6 @@ Laravel - [beyondcode/laravel-websockets](https://beyondco.de/docs/laravel-webso
 Установите через composer и настройте по оф. документации. Для работы со стороны клиента
 используется [Laravel Echo](https://github.com/laravel/echo).
 
-Echo настроен на `.env` файл.
-
 Конфиг:
 
 `/config/websockets.php`
@@ -66,4 +64,4 @@ VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
 VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 ```
 
-`.env` - является ключевым, через него выполняется подключение **Laravel Echo** к серверу.
+Дальше >> [Страницы](Pages.md)

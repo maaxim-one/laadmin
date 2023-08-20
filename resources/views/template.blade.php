@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LaAdminPanel</title>
+    @routes
     {{
         Vite::useBuildDirectory('laadmin')
             ->withEntryPoints(['resources/js/app.js'])
@@ -15,8 +16,5 @@
         //
     @show
 </div>
-@if(env('APP_ENV') == 'local')
-    @routes
-@endif
 </body>
 </html>

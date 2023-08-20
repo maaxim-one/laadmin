@@ -21,6 +21,17 @@ Route::middleware('IsAdmin')->group(function () {
         Route::post('/get', 'LaAdminRoles@getRoles')->name('get-roles');
     });
 
+    Route::prefix('/pages')->group(function () {
+        Route::post('/get', 'LaAdminPage@getPages')->name('get-pages');
+        Route::post('/get/page', 'LaAdminPage@getPage')->name('get-page');
+        Route::post('/get/data', 'LaAdminPage@getData')->name('get-page-data');
+        Route::post('/file/download', 'LaAdminPage@downloadFile')->name('download-file');
+        Route::post('/file/delete', 'LaAdminPage@deleteFile')->name('delete-file');
+        Route::post('/save', 'LaAdminPage@saveData')->name('save-page-data');
+        Route::post('/add', 'LaAdminPage@addPost')->name('add-page-post');
+        Route::post('/delete', 'LaAdminPage@deletePost')->name('delete-page-post');
+    });
+
     Route::post('/errors/get-all', 'LaAdminErrorReport@getErrors')->name('get-errors');
     Route::post('/errors/get', 'LaAdminErrorReport@getReport')->name('get-report');
     Route::post('/error/read', 'LaAdminErrorReport@read')->name('error-read');

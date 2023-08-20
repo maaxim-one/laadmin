@@ -24,5 +24,9 @@ class LaAdminServiceProvider extends ServiceProvider
         $this->app->registerDeferredProvider(LaAdminFacadesProvider::class);
         $this->app->registerDeferredProvider(LaAdminCommandsProvider::class);
         $this->app->registerDeferredProvider(LaAdminBroadcastProvider::class);
+
+        if (file_exists(app_path('laadmin/pages.php'))) {
+            require_once app_path('laadmin/pages.php');
+        }
     }
 }
