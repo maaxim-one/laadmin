@@ -38,14 +38,22 @@ public function register(): void
 ## Настройка модели пользователя
 
 LaAdminPanel использует интерфейс `CanResetPassword` в модели пользователя.
-Вам нужно его реализовать:
+Так же нужно настроить канал для WebSockets.
+Вам нужно это реализовать:
 
 ```php
+use Illuminate\Database\Eloquent\BroadcastsEvents;
 use Illuminate\Contracts\Auth\CanResetPassword;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements CanResetPassword
 {
-    //
+    use BroadcastsEvents, HasApiTokens, Notifiable;
+    
+    public function broadcastOn(string $event): array
+    {
+        return [$this];
+    }
 }
 ```
 

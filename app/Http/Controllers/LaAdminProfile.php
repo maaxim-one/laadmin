@@ -25,7 +25,9 @@ class LaAdminProfile extends AdminController
         $user->other_data = $this->getUserOtherData($user);
         $user->role = Role::findOrFail($user->role_id);
 
-        return response()->json($user);
+        return $this->_request->expectsJson()
+            ? response()->json($user)
+            : $user;
     }
 
     public function getUserOtherData(User $user): array
