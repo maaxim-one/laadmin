@@ -35,4 +35,28 @@ public function register(): void
 }
 ```
 
+## Настройка модели пользователя
+
+LaAdminPanel использует интерфейс `CanResetPassword` в модели пользователя.
+Вам нужно его реализовать:
+
+```php
+use Illuminate\Contracts\Auth\CanResetPassword;
+
+class User extends Authenticatable implements CanResetPassword
+{
+    //
+}
+```
+
+**LaAdminPanel** только отправляет письмо на почту пользователя.
+Далее вам нужно реализовать функционал обработки по
+оф. [Документации](https://laravel.com/docs/10.x/passwords#resetting-the-password).
+
+## Вход в LaAdminPanel
+
+Перейдите на страницу авторизации по адресу `http://loc.site/admin/login`.
+<br>
+По умолчанию логин: `admin` пароль: `123`
+
 Дальше >> [Подключение WebSockets](WebSockets.md)

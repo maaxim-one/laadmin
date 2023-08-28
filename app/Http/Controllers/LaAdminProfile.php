@@ -2,6 +2,7 @@
 
 namespace MaaximOne\LaAdmin\Http\Controllers;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -29,7 +30,7 @@ class LaAdminProfile extends AdminController
 
     public function getUserOtherData(User $user): array
     {
-        $other_data = collect($user)->forget([
+        $other_data = collect($user->toArray())->forget([
             'id', 'name', 'surname', 'login', 'email', 'phone', 'email_verified_at', 'password', 'remember_token',
             'last_visit', 'role_id', 'created_at', 'updated_at'
         ])->toArray();
@@ -65,7 +66,7 @@ class LaAdminProfile extends AdminController
         }
 
         foreach ($this->_request->all()['other_data'] as $key => $item) {
-            $user->$key = $item['value'];
+            $user->$key = Arr::has($item, 'value') ? $item['value'] : null;
         }
 
         $user->save();

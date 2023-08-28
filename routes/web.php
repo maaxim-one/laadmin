@@ -15,6 +15,8 @@ Route::middleware('IsAdmin')->group(function () {
         Route::post('/delete', 'LaAdminUsers@deleteUser')->name('delete-user');
 
         Route::post('/new', 'LaAdminUsers@newUser')->name('new-user');
+
+        Route::post('/forget-password', 'LaAdminUsers@sendPasswordResetNotification')->name('forget-password');
     });
 
     Route::prefix('/roles')->group(function () {

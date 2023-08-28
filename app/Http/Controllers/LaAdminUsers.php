@@ -3,6 +3,7 @@
 namespace MaaximOne\LaAdmin\Http\Controllers;
 
 use MaaximOne\LaAdmin\Mail\LaAdminNewUserMail;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use MaaximOne\LaAdmin\Models\Role;
@@ -69,5 +70,14 @@ class LaAdminUsers extends AdminController
         return response()->json(
             User::findOrFail($this->_request->input('user_id'))->delete()
         );
+    }
+
+    public function sendPasswordResetNotification()
+    {
+        $this->_request->validate([
+            'email' => 'required|email'
+        ]);
+
+        return response()->json(Password::sendResetLink($this->_request->only('email')));
     }
 }
