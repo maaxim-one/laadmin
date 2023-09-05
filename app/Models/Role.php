@@ -21,9 +21,4 @@ class Role extends Model
             set: fn($value) => json_encode($value)
         );
     }
-
-    public function broadcastOn(string $event): array
-    {
-        return [$this];
-    }
 }

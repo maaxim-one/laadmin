@@ -18,14 +18,12 @@ class LaAdminErrorReport extends AdminController
     public function getErrors()
     {
         $errors = ErrorReport::orderBy('report_id', 'desc');
-
         if ($this->_request->has('limit')) $errors = $errors->limit($this->_request->input('limit'));
-
         $errors = $errors->get();
         $count = 0;
 
         foreach ($errors as $error) {
-            if ($error->report_fixed_at == null) {
+            if ($error->report_fixed_at == null && $error->report_read_at == null) {
                 $count++;
             }
         }

@@ -2,6 +2,7 @@
 
 namespace MaaximOne\LaAdmin\Models;
 
+use Illuminate\Database\Eloquent\BroadcastsEvents;
 use MaaximOne\LaAdmin\Casts\JsonDateCast;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -9,6 +10,8 @@ use App\Models\User;
 
 class ErrorReport extends Model
 {
+    use BroadcastsEvents;
+
     const CREATED_AT = 'report_created_at';
     const UPDATED_AT = null;
     protected $primaryKey = 'report_id';

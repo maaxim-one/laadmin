@@ -9,6 +9,10 @@ Broadcast::channel('userStatus', function (User $user) {
     return false;
 });
 
+Broadcast::channel('MaaximOne.LaAdmin.Models.ErrorReport.{id}', function ($user, $id) {
+    return $user->role_id > 1;
+});
+
 Broadcast::channel('MaaximOne.LaAdmin.Models.Role.{id}', function ($user, $id) {
     return (int)$user->role_id === (int)$id;
 });
