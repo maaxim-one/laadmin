@@ -12,21 +12,15 @@ class LaAdminRouteProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Route::group([
-            'as' => 'laadmin.',
-            'middleware' => ['web', 'IsAdmin'],
-            'prefix' => 'admin',
-        ], function () {
-            if (file_exists(base_path('routes/admin.php'))) {
-                $this->loadRoutesFrom(base_path('routes/admin.php'));
-            }
-        });
-
-//        Route::middleware('web')
-//            ->group(function () {
+//        Route::group([
+//            'as' => 'laadmin.',
+//            'middleware' => ['web', 'IsAdmin'],
+//            'prefix' => 'admin',
+//        ], function () {
+//            if (file_exists(base_path('routes/admin.php'))) {
 //                $this->loadRoutesFrom(base_path('routes/admin.php'));
-//            })
-//            ->prefix('admin');
+//            }
+//        });
 
         Route::group([
             'namespace' => 'MaaximOne\LaAdmin\Http\Controllers',
@@ -36,12 +30,5 @@ class LaAdminRouteProvider extends ServiceProvider
         ], function () {
             $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
         });
-
-//        Route::middleware('web')
-//            ->namespace('MaaximOne\LaAdmin\Http\Controllers')
-//            ->group(function () {
-//                $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
-//            })
-//            ->prefix('admin');
     }
 }

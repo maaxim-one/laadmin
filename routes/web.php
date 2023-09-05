@@ -39,6 +39,10 @@ Route::middleware('IsAdmin')->group(function () {
     Route::post('/error/read', 'LaAdminErrorReport@read')->name('error-read');
     Route::post('/error/fixed', 'LaAdminErrorReport@fixed')->name('error-fixed');
     Route::post('/error/event', 'LaAdminErrorReport@event')->name('error-event');
+
+    Route::get('{any?}', function () {
+        return view('laadmin::index');
+    })->where('any', '^(?!login|register).*$')->name('home');
 });
 
 Route::get('/login', 'Auth\LaAdminLogin@page')->name('login');
