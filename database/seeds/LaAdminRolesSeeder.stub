@@ -1,0 +1,27 @@
+<?php
+
+namespace Database\Seeders;
+
+use MaaximOne\LaAdmin\Models\Role;
+use Illuminate\Database\Seeder;
+
+class LaAdminRolesSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $new = new Role();
+        $new->role_id = 1;
+        $new->role_name = 'Пользователь';
+        $new->rules = [];
+        $new->save();
+
+        $new = new Role();
+        $new->role_id = 2;
+        $new->role_name = 'Администратор';
+        $new->rules = [];
+        $new->save();
+    }
+}

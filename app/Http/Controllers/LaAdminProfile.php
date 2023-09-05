@@ -2,12 +2,12 @@
 
 namespace MaaximOne\LaAdmin\Http\Controllers;
 
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use MaaximOne\LaAdmin\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use App\Models\User;
 
 class LaAdminProfile extends AdminController
@@ -67,8 +67,10 @@ class LaAdminProfile extends AdminController
             $user->$key = $item;
         }
 
-        foreach ($this->_request->all()['other_data'] as $key => $item) {
-            $user->$key = Arr::has($item, 'value') ? $item['value'] : null;
+        if (Arr::has($this->_request->all(), 'other_data')) {
+            foreach ($this->_request->all()['other_data'] as $key => $item) {
+                $user->$key = Arr::has($item, 'value') ? $item['value'] : null;
+            }
         }
 
         $user->save();
