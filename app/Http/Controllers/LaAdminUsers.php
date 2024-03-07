@@ -20,6 +20,15 @@ class LaAdminUsers extends AdminController
     {
         $this->_request = $this->replaceRequest($request);
         $this->_profile = new LaAdminProfile($this->_request);
+
+        $this->setRulePage([
+            'laadmin.save-user' => 'users.edit',
+            'laadmin.delete-user' => 'users.delete',
+            'laadmin.new-user' => 'users.add',
+            'laadmin.forget-password' => 'users.reset',
+        ], 'users');
+
+        $this->checkRules($this->_request, 'getUsers');
     }
 
     public function getUsers()

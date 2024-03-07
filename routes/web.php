@@ -1,7 +1,7 @@
 <?php
 
-Route::middleware('IsAdmin')->group(function () {
-    Route::prefix('/profile/user')->group(function () {
+Route::middleware(['IsAdmin'])->group(function () {
+    Route::prefix('/profile/user')->withoutMiddleware('CheckAccept')->group(function () {
         Route::post('get', 'LaAdminProfile@getUser')->name('get-user');
         Route::post('save', 'LaAdminProfile@saveProfile')->name('save-profile');
         Route::post('verify', 'LaAdminProfile@verifyUser')->name('verify-user');
@@ -21,9 +21,14 @@ Route::middleware('IsAdmin')->group(function () {
 
     Route::prefix('/roles')->group(function () {
         Route::post('/get', 'LaAdminRoles@getRoles')->name('get-roles');
+        Route::post('/get/clean', 'LaAdminRoles@getCleanRules')->name('get-clean-roles');
+
+        Route::post('/add', 'LaAdminRoles@add')->name('add-role');
+        Route::post('/save', 'LaAdminRoles@save')->name('save-role');
+        Route::post('/delete', 'LaAdminRoles@delete')->name('delete-role');
     });
 
-    Route::prefix('/pages')->group(function () {
+    Route::prefix('/pages')->withoutMiddleware('CheckAccept')->group(function () {
         Route::post('/get', 'LaAdminPage@getPages')->name('get-pages');
         Route::post('/get/page', 'LaAdminPage@getPage')->name('get-page');
         Route::post('/get/data', 'LaAdminPage@getData')->name('get-page-data');
@@ -34,11 +39,13 @@ Route::middleware('IsAdmin')->group(function () {
         Route::post('/delete', 'LaAdminPage@deletePost')->name('delete-page-post');
     });
 
-    Route::post('/errors/get-all', 'LaAdminErrorReport@getErrors')->name('get-errors');
-    Route::post('/errors/get', 'LaAdminErrorReport@getReport')->name('get-report');
-    Route::post('/error/read', 'LaAdminErrorReport@read')->name('error-read');
-    Route::post('/error/fixed', 'LaAdminErrorReport@fixed')->name('error-fixed');
-    Route::post('/error/event', 'LaAdminErrorReport@event')->name('error-event');
+    Route::prefix('/errors')->group(function () {
+        Route::post('/get-all', 'LaAdminErrorReport@getErrors')->name('get-errors');
+        Route::post('/get', 'LaAdminErrorReport@getReport')->name('get-report');
+        Route::post('/read', 'LaAdminErrorReport@read')->name('error-read');
+        Route::post('/fixed', 'LaAdminErrorReport@fixed')->name('error-fixed');
+        Route::post('/event', 'LaAdminErrorReport@event')->name('error-event');
+    });
 
     Route::get('{any?}', function () {
         return view('laadmin::index');

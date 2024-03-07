@@ -2,10 +2,11 @@
 
 namespace MaaximOne\LaAdmin\Providers;
 
-use Illuminate\Foundation\Application;
-use Illuminate\Support\ServiceProvider;
-use MaaximOne\LaAdmin\Classes\LaAdmin;
 use MaaximOne\LaAdmin\Classes\Page\LaAdminPage;
+use MaaximOne\LaAdmin\Classes\Role\LaAdminRole;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Application;
+use MaaximOne\LaAdmin\Classes\LaAdmin;
 
 class LaAdminFacadesProvider extends ServiceProvider
 {
@@ -17,6 +18,10 @@ class LaAdminFacadesProvider extends ServiceProvider
 
         $this->app->bind('LaAdminPage', function (Application $app) {
             return new LaAdminPage();
+        });
+
+        $this->app->bind('LaAdminRole', function (Application $app) {
+            return new LaAdminRole();
         });
     }
 }

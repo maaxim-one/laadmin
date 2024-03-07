@@ -13,6 +13,15 @@ class LaAdminErrorReport extends AdminController
     public function __construct(Request $request)
     {
         $this->_request = $request;
+
+        $this->setRulePage([
+            'laadmin.get-report' => 'errors.read',
+            'laadmin.error-read' => 'errors.read',
+            'laadmin.error-fixed' => 'errors.fixed',
+            'laadmin.error-event' => 'errors.comment'
+        ], 'errors');
+
+        $this->checkRules($request, 'getErrors');
     }
 
     public function getErrors()

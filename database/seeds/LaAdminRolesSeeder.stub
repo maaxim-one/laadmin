@@ -21,7 +21,66 @@ class LaAdminRolesSeeder extends Seeder
         $new = new Role();
         $new->role_id = 2;
         $new->role_name = 'Администратор';
-        $new->rules = [];
+        $new->rules = [
+            "roles" => [
+                "abbreviation" => "Роли",
+                "accept" => true,
+                "params" => [
+                    "add" => [
+                        "value" => true,
+                        "abbreviation" => "Добавление"
+                    ],
+                    "edit" => [
+                        "value" => true,
+                        "abbreviation" => "Редактирование"
+                    ],
+                    "delete" => [
+                        "value" => true,
+                        "abbreviation" => "Удаление"
+                    ]
+                ],
+            ],
+            "users" => [
+                "abbreviation" => "Пользователи",
+                "accept" => true,
+                "params" => [
+                    "add" => [
+                        "value" => true,
+                        "abbreviation" => "Добавление"
+                    ],
+                    "edit" => [
+                        "value" => true,
+                        "abbreviation" => "Редактирование"
+                    ],
+                    "reset" => [
+                        "value" => true,
+                        "abbreviation" => "Сброс паролей"
+                    ],
+                    "delete" => [
+                        "value" => true,
+                        "abbreviation" => "Удаление"
+                    ]
+                ],
+            ],
+            "errors" => [
+                "abbreviation" => "Ошибки",
+                "accept" => true,
+                "params" => [
+                    "read" => [
+                        "value" => true,
+                        "abbreviation" => "Просматривать"
+                    ],
+                    "fixed" => [
+                        "value" => true,
+                        "abbreviation" => "Отмечать как \"Исправлено\""
+                    ],
+                    "comment" => [
+                        "value" => true,
+                        "abbreviation" => "Комментировать"
+                    ]
+                ],
+            ]
+        ];
         $new->save();
     }
 }
