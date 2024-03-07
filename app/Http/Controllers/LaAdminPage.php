@@ -19,6 +19,19 @@ class LaAdminPage extends AdminController
     public function __construct(Request $request)
     {
         $this->_request = $this->replaceRequest($request);
+
+        $pageName = $this->_request->input('pageName');
+
+        if ($pageName != null) {
+            $ru = [
+                'laadmin.add-page-post' => $pageName . '.add',
+                'laadmin.save-page-data' => $pageName . '.edit',
+                'laadmin.delete-page-post' => $pageName . '.delete',
+            ];
+
+            $this->setRulePage($ru, $pageName);
+            $this->checkRules($this->_request, ['getPages', 'getPage', 'fileSize']);
+        }
     }
 
     public function getPages()
@@ -158,7 +171,11 @@ class LaAdminPage extends AdminController
 
         if (Arr::has($page->getFields(), 'files')) {
             foreach ($page->getFields()['files'] as $file) {
-                if ($file->_validationRules != null) {
+                if ($method == 'add' && $file->_validationRulesAdd != null) {
+                    $rules[$file->_name] = $file->_validationRulesAdd;
+                } elseif ($method == 'edit' && $file->_validationRulesEdit != null) {
+                    $rules[$file->_name] = $file->_validationRulesEdit;
+                } elseif ($field->_validationRules != null) {
                     $rules[$file->_name] = $file->_validationRules;
                 }
             }
@@ -207,7 +224,7 @@ class LaAdminPage extends AdminController
 
         $data->save();
 
-        return response()->json(true);
+        return response()->json($data);
     }
 
     public function downloadFile()

@@ -10,6 +10,7 @@ class Field
     public bool $_readonly = false;
     public bool $_disabled = false;
     public bool $_show = true;
+    public bool $_show_in_table = true;
     public string|array|null $_validationRules = null;
     public string|array|null $_validationRulesEdit = null;
     public string|array|null $_validationRulesAdd = null;
@@ -29,6 +30,12 @@ class Field
     public function setShow(bool $show): Field
     {
         $this->_show = $show;
+        return $this;
+    }
+
+    public function setShowInTable(bool $showInTable): Field
+    {
+        $this->_show_in_table = $showInTable;
         return $this;
     }
 
@@ -100,6 +107,7 @@ class Field
             'readonly' => $this->_readonly,
             'disabled' => $this->_disabled,
             'show' => $this->_show,
+            'show_in_table' => $this->_show_in_table,
             'validationRules' => $this->_validationRules,
         ];
     }

@@ -28,7 +28,7 @@ Route::middleware(['IsAdmin'])->group(function () {
         Route::post('/delete', 'LaAdminRoles@delete')->name('delete-role');
     });
 
-    Route::prefix('/pages')->withoutMiddleware('CheckAccept')->group(function () {
+    Route::prefix('/pages')->group(function () {
         Route::post('/get', 'LaAdminPage@getPages')->name('get-pages');
         Route::post('/get/page', 'LaAdminPage@getPage')->name('get-page');
         Route::post('/get/data', 'LaAdminPage@getData')->name('get-page-data');

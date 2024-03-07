@@ -2,6 +2,7 @@
 
 namespace MaaximOne\LaAdmin\Classes\Page;
 
+use MaaximOne\LaAdmin\Facades\LaAdminRole;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Arr;
 
@@ -41,6 +42,7 @@ class Page
     public function setTitle(?string $title): Page
     {
         $this->_page->title = $title;
+        $this->initRules();
         return $this;
     }
 
@@ -133,6 +135,12 @@ class Page
         }
 
         return $this;
+    }
+
+    public function initRules(): void
+    {
+        LaAdminRole::make($this->_pageName)
+            ->setAbbreviation($this->_page->title);
     }
 
     public function __toResponse(): object

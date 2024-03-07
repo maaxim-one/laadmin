@@ -129,6 +129,8 @@ namespace: `MaaximOne\LaAdmin\Classes\Page`
 >     });
 >```
 
+`public function initRules(): void` - инициализация правил роли для страницы
+
 ## Field
 
 namespace: `MaaximOne\LaAdmin\Classes\Page`
@@ -167,6 +169,11 @@ namespace: `MaaximOne\LaAdmin\Classes\Page`
 
 > Параметры:<br>
 > `bool $show = true`
+
+`public function setShowInTable(bool $showInTable): Field` - правило, показывать поле в таблице или нет
+
+> Параметры:<br>
+> `bool $showInTable = true`
 
 `public function setValidationRules(null|string|array $validationRules): Field` -
 устанавливаются общие правила для валидации поля.
